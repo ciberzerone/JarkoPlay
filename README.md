@@ -1,6 +1,5 @@
-encabezado!<img>
+![encabezado](https://github.com/ciberzerone/JarkoPlay/blob/main/img/encabezado.png)
 
-encabezado.png
 
 
 
