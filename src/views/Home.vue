@@ -3,11 +3,17 @@
     <div class="content-block">
       <div class="hero-wrapper">
         <!-- Video de fondo cubre tanto la barra de navegación como la sección principal -->
-        <video autoplay muted loop id="background-video" ref="backgroundVideo" class="background-video">
-          <source src="/movie-trailer.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
+        
+        <div class="video-container">
+    <iframe 
+      src="https://player.vimeo.com/video/1020562524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" 
+      frameborder="0" 
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+      
+      style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+      title="lv_0_20241015024028">
+    </iframe>
+  </div>
         <!-- Barra de Navegación Superior -->
         <header class="navbar">
           
@@ -33,11 +39,7 @@
                         </p>
                         <button class="btn-signup" @click="navigateToRegister">SIGN UP</button>
                                 <!-- Modal para el formulario de registro -->
-                        <div class="controls">
-                          <button class="control-btn" @click="rewindVideo">⏮</button>
-                          <button class="control-btn" @click="pausePlayVideo">⏯</button>
-                          <button class="control-btn" @click="forwardVideo">⏭</button>
-                        </div>
+                        
                   </div>
             </div>
         </section>
@@ -84,30 +86,25 @@ export default {
     Catalog,
     SignupButton
   },
+  mounted() {
+    try {
+    // Cargar el script de Vimeo (si es necesario)
+    const vimeoScript = document.createElement('script');
+    vimeoScript.src = "https://player.vimeo.com/api/player.js";
+    document.body.appendChild(vimeoScript);
+
+    console.log("Script de Vimeo cargado exitosamente");
+  } catch (error) {
+    console.error("Error en mounted hook:", error);
+  }
+},
   data() {
     return {
       isModalOpen: false
     };
   },
   methods: {
-    rewindVideo() {
-      const video = this.$refs.backgroundVideo;
-      video.currentTime -= 10;
-    },
-    pausePlayVideo() {
-      const video = this.$refs.backgroundVideo;
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    },
-    forwardVideo() {
-      const video = this.$refs.backgroundVideo;
-      video.currentTime += 10;
-    },
-
-    navigateToLogin() {
+        navigateToLogin() {
     this.$router.push('/login')
   },
   
@@ -124,5 +121,17 @@ export default {
   }
 };
 </script>
+
+<style>
+.background-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra toda el área sin distorsión */
+}
+</style>
+
 
 

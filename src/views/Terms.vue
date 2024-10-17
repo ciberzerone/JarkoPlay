@@ -2,23 +2,17 @@
 <template>
   <!-- Cabecera fija en la parte superior -->
   <div class="hero-wrapper">
-    <header class="navbar">
-      <nav class="nav-menu">
-        <router-link to="/">Home</router-link>
-        <router-link to="/movies">Movies</router-link>
-        <router-link to="/register">Registration</router-link>
-        <router-link to="/about">About Us</router-link>
-        <router-link to="/contact">Contact</router-link>
-      </nav>
-    </header>
+                <Header/>
   </div>
-
+  
+       
   <!-- Contenido principal -->
   <div class="login-page">
-    <div class="content-left">
+    
+    <div class="terms-content">
+      <div class="content-left">
       <h1>Yarko<span class="highlight">PLAY</span></h1>
     </div>
-    <div class="terms-content">
       <h1>Terms and Conditions</h1>
       <p>
         Welcome to YarkoPLAY. These terms and conditions outline the rules and regulations for the use of our platform.
@@ -30,28 +24,16 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-item">
-        <router-link to="/contact">Contact</router-link>
-      </div>
-      <div class="footer-item">
-        <router-link to="/about">About</router-link>
-      </div>
-      <div class="footer-item">
-        <router-link to="/terms">Terms</router-link>
-      </div>
-      <div class="footer-item">
-        <router-link to="/privacy">Privacy</router-link>
-      </div>
-      <div class="footer-item">
-        <router-link to="/legal">Legal</router-link>
-      </div>
-      <div class="footer-item">
-        <span class="highlight">Yarko<span class="highlight">PLAY</span></span>
-      </div>
-    </footer>
+        <Footer/>
   </div>
 </template>
+
+<script setup>
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+
+</script>
+
 
 <script>
 export default {
@@ -101,88 +83,11 @@ export default {
   text-decoration: underline;
 }
 
-/* Hero Wrapper */
-.hero-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-/* Cabecera */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  padding: 15px 30px;
+.login-page {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.nav-menu {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
-  border-radius: 5px;
-}
-
-.nav-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Footer */
-.footer {
-  background-color: #222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.footer-item {
-  margin: 0 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.footer-item a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-item:hover a {
-  color: #00d4ff; /* Color de hover */
-  text-decoration: underline; /* Subrayado al pasar el cursor */
-}
-
-.highlight {
-  color: #00d4ff;
-  font-weight: bold;
-}
-
-/* Ajustes generales */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  background-color: #f0f0f5; /* Fondo de la página */
-  font-family: 'Roboto', sans-serif;
-}
 </style>

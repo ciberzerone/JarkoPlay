@@ -11,6 +11,11 @@ export default defineConfig({
       '@': '/src', // Si usas alias para la ruta 'src'
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['/movie-trailer.mp4']
+    }
+  },
   server: {
     sourcemap: true, 
     mimeTypes: {
@@ -18,3 +23,5 @@ export default defineConfig({
     },
   },
 });
+
+  

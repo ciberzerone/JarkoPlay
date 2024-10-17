@@ -1,19 +1,32 @@
 <template>
-  <div class="register-container">
-    <h1>Regístrate en YarkoPlay</h1>
-    <form @submit.prevent="registerUser" class="register-form">
-      <input v-model="email" type="email" placeholder="Correo Electrónico" class="form-input" />
-      <input v-model="password" type="password" placeholder="Contraseña" class="form-input" />
-      <button type="submit" class="register-btn">Crear cuenta</button>
-    </form>
-    <p v-if="error" class="error-message">{{ error }}</p>
+  <!-- Cabecera fija en la parte superior -->
+  <div class="hero-wrapper">
+                <Header/>
+  </div>
+  
+  <div class="login-page">
+          <div class="register-container">
+            <h1>Regístrate en YarkoPlay</h1>
+                <form @submit.prevent="registerUser" class="register-form">
+                  <input v-model="email" type="email" placeholder="email" class="form-input" />
+                  <input v-model="password" type="password" placeholder="password" class="form-input" />
+                  <button type="submit" class="register-btn">Crear cuenta</button>
+                </form>
+
+            <p v-if="error" class="error-message">{{ error }}</p>
+          </div>
+
+                <Footer/>
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
+import Header from '../components/Header.vue';  // Importa el componente Header
+import Footer from '../components/Footer.vue';  // Importa el componente Footer
 import { supabase } from '../supabase'
-
+</script>
+<<script>
 export default {
   name: 'Register',
   setup() {
@@ -94,5 +107,12 @@ h1 {
 .error-message {
   color: #ff4d4d;
   margin-top: 15px;
+}
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding-top: 100px;
 }
 </style>
