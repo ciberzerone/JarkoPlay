@@ -1,4 +1,12 @@
+encabezado!<img>
+
+encabezado.png
+
+
+
+
 # Yarkoplay
+
 
 **Yarkoplay** es una plataforma de streaming de contenido similar a Netflix donde los usuarios deben registrarse y autenticarse para acceder a películas y series. Ofrece una experiencia de usuario fluida con recomendaciones personalizadas y un catálogo que se puede filtrar por género, actores, y otros metadatos.
 
